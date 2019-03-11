@@ -1,2 +1,2 @@
 # PythonScripts
-Python with flask
+Python with Django
