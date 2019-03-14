@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Split bill</title>
+    <!-- Main css -->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<nav>
+    <div class="nav-bar">
+        <a class="nav-item" href="/bills">Home</a>
+        <a class="nav-item" href="/bill_entry">Add a Bill</a>
+        <a class="nav-item" href="/share_bill">Share a Bill</a>
+        <a class="nav-item" href="/total_bills">Total Bills</a>
+    </div>
+</nav>
+<body class="bg" background="{% static 'images/tablet_working.jpg' %}">
+<div>
+    <h1 class="header">Welcome to Split bills</h1>
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>
+
+
+
+
+

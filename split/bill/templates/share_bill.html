@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" action="/share_bill_submit">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col">
+            <label for="name_shared">Name of Person</label>
+            <input id="name_shared" type="text" name="name_shared" class="form-control" placeholder="ex: John"
+                   value="{{ current_name }}" required>
+        </div>
+        <div class="col">
+            <label for="amount_shared">Amount Paid</label>
+            <input id="amount_shared" type="number" name="amount_shared" class="form-control" placeholder="ex: 500"
+                   value="{{ current_amount }}" required>
+        </div>
+    </div>
+    <div class="col1">
+        <button type="submit" class="form-control" value="ok">Save</button>
+    </div>
+</form>
+<form action="/share_bill_submit_evaluate">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Delete</th>
+            <th scope="col">Name</th>
+            <th scope="col">Amount Paid</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for shared_bill in share %}
+        <tr>
+            <th scope="row"><a href="/delete_person/{{ shared_bill.id }}">Delete</a></th>
+            <td>{{ shared_bill.name_shared }}</td>
+            <td>{{ shared_bill.amount_shared }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="col1">
+        <button type="submit" class="form-control" value="ok">Evaluate</button>
+    </div>
+</form>
+{% endblock %}
+

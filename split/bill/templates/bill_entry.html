@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" action="/bill_entry_submit">
+    {% csrf_token %}
+    <div class="form-group">
+        <label>Name The Bill</label>
+        <input type="text" name="name_bill" placeholder="Max_Length 225" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Amount</label>
+        <input type="number" name="amount" placeholder="Numerical Only" required>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" name="description" placeholder="Max_Length 2083" required>
+    </div>
+    <br>
+     <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="date_bill" value="xx/xx/xxxx" required>
+    </div>
+    <div class="form-group1">
+    <button type="submit" class="button">Save</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/total_bills_delete_person">
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Delete</th>
+        <th scope="col">Name</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for bills in total %}
+    <tr>
+        <th scope="row"><a href="/total_bills_delete_person/{{ bills.id }}">Delete</a></th>
+        <td>{{ bills.name_bill }}</td>
+        <td>{{ bills.amount }}</td>
+        <td>{{ bills.description }}</td>
+        <td>{{ bills.date_bill }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <th scope="row">Total Amount</th>
+        <td></td>
+        <td class="red">{{ total_amount }}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+</form>
+{% endblock %}

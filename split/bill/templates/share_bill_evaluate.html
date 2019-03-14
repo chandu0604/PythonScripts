@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <table class="table1">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Due</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key, value in total_share.items %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <p class="para">Note:
+            '-' Negative sign indicates the following<br>
+            person should pay due to person<br>
+            who stands with no
+            sign. </p>
+    </table>
+</div>
+{% endblock %}
